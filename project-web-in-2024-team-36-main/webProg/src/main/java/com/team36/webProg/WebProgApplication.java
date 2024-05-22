@@ -18,11 +18,11 @@ public class WebProgApplication {
 		SpringApplication.run(WebProgApplication.class, args);
 	}
 
-	@Autowired
+	/*@Autowired
 	public void LinkOpenAPI() {
 		System.out.println("Link za OpenAPI UI: http://localhost:" + env.getProperty("server.port") + "/swagger-ui/index.html#/");
-		//System.out.println("Link za Client Server [Front]: http://localhost:" + env.getProperty("front.port") + "/");
-	}
+		System.out.println("Link za Client Server [Front]: http://localhost:" + env.getProperty("front.port") + "/");
+	}*/
 
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
