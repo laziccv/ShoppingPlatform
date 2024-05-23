@@ -21,5 +21,18 @@ public class UsersServiceImpl implements UsersService {
         return _usersRepo.findAll();
     }
 
+	@Override
+	public Users create(Users user) throws Exception {
+		
+        Users newUser = this._usersRepo.save(user);
+        return newUser;
+	}
+
+	@Override
+	public Users checkLogin(String username, String password) {
+		Users user = this._usersRepo.findOneByUsernameAndPassword(username,password);
+        return user;
+	}
+
 }
 
