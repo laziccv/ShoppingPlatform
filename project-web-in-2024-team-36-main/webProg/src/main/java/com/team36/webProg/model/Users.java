@@ -166,4 +166,26 @@ public class Users implements Serializable {
     public void setBlocked(boolean blocked) {
         isBlocked = blocked;
     }
+    
+    
+    
+    
+      @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", phNum='" + phNum + '\'' +
+                ", password='" + password + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", userImagePath='" + userImagePath + '\'' +
+                ", description='" + description + '\'' +
+                ", userType='" + userType + '\'' +
+                ", isBlocked='" + isBlocked + '\'' +
+                
+                '}';
+    }
 }
