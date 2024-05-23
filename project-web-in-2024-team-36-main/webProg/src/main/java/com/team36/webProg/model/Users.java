@@ -1,10 +1,13 @@
 package com.team36.webProg.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -12,9 +15,12 @@ import java.util.Date;
 @Table(name = "users")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="userType", discriminatorType = DiscriminatorType.STRING)
+@Getter @Setter
 public class Users implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+    @Column(name = "id", unique = true, updatable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "entity_id_seq")
+    @SequenceGenerator(name = "entity_id_seq", sequenceName = "global_id_sequence", allocationSize = 1)
     private Long id;
     @Column
     private String name;
@@ -39,6 +45,15 @@ public class Users implements Serializable {
     private String userType;
     @Column
     private boolean isBlocked;
+    
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
+    
+    @OneToMany(mappedBy = "reporter", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Report> prijavePodnete;
+
+    @OneToMany(mappedBy = "reported", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Report> prijaveProtiv;
 
     public Users(Long id, String name, String surname, String username, String email, String phNum, String password, Date dateOfBirth, String userImagePath, String description, String userType, boolean isBlocked) {
         this.id = id;

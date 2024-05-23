@@ -1,32 +1,44 @@
 package com.team36.webProg.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import java.util.Date;
 
 @Entity
 @Table(name = "Reviews")
+@Getter @Setter
 public class Review {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+    @Column(name = "id", unique = true, updatable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "entity_id_seq")
+    @SequenceGenerator(name = "entity_id_seq", sequenceName = "global_id_sequence", allocationSize = 1)
     private Long id;
-
+	
+	@Column
     private int rating;
+	@Column
     private String comment;
+	@Column
     private Date reviewDate;
 
-    @ManyToOne(fetch=FetchType.EAGER)
-    private Users users;
+	 @ManyToOne
+	    @JoinColumn(name = "user_id", nullable = false)
+	    private Users users;
 
-    public Review(Long id, int rating, String comment, Date reviewDate/*,Users reviewer*/) {
+    public Review(Long id, int rating, String comment, Date reviewDate, Users users) {
         this.id = id;
         this.rating = rating;
         this.comment = comment;
         this.reviewDate = reviewDate;
-        //this.reviewer = reviewer;
+        this.users = users;
+        
     }
+    
+    public Review() {}
 
-    public Long getId() {
+    /*public Long getId() {
         return id;
     }
 
@@ -58,11 +70,11 @@ public class Review {
         this.reviewDate = reviewDate;
     }
 
-    /*public Users getReviewer() {
-        return reviewer;
+    public Users getReviewer() {
+        return users;
     }
 
-    public void setReviewer(Users reviewer) {
-        this.reviewer = reviewer;
+    public void setReviewer(Users users) {
+        this.users = users;
     }*/
 }

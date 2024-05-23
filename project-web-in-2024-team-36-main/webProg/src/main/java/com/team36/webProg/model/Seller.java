@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@DiscriminatorValue("seller")
+@DiscriminatorValue("SELLER")
 public class Seller extends Users{
 
     @OneToMany(mappedBy="users", fetch=FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -18,11 +18,15 @@ public class Seller extends Users{
 
 
 
-    /*public Seller(Long id, String name, String surname, String username, String email, String phNum, String password, Date dateOfBirth, String userImagePath, String desc, String userType, boolean isBlocked, List<Product> productsForSale, List<Review> receivedReviews) {
+    public Seller(Long id, String name, String surname, String username, String email, String phNum, String password, Date dateOfBirth, String userImagePath, String desc, String userType, boolean isBlocked, Set<Product> productsForSale, Set<Review> receivedReviews) {
         super(id, name, surname, username, email, phNum, password, dateOfBirth, userImagePath, desc, userType, isBlocked);
         this.productsForSale = productsForSale;
         this.receivedReviews = receivedReviews;
-    }*/
+    }
+    
+    public Seller(){
+    	super();
+    }
 
     public Set<Product> getProductsForSale() {
         return productsForSale;
