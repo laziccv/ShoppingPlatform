@@ -8,4 +8,6 @@ public interface UsersService {
     List<Users> findAll();
     Users create(Users user) throws Exception;
     Users checkLogin(String username, String password);
+    Users findOneById(Long id);
+    Users update(Users user) throws Exception;
 }

@@ -50,4 +50,28 @@ public class UsersController {
         }
         return new ResponseEntity<Users>(user_info, HttpStatus.OK);
     }
+    
+    
+    @PutMapping(value="/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Users> updateUser(@RequestBody Users user){
+
+        System.out.println(user.getId());
+        Users updatedUser = null;
+
+        try {
+            updatedUser = _usersService.update(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<Users>(HttpStatus.NOT_FOUND);
+        }
+
+        if(updatedUser == null){
+            return new ResponseEntity<Users>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<Users>(updatedUser, HttpStatus.OK);
+
+        }
+    
+    
 }
