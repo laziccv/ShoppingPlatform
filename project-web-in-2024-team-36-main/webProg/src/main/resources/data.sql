@@ -22,10 +22,10 @@ INSERT INTO Reviews (id, rating, comment, review_date, user_id) VALUES
 INSERT INTO Reports (id, reason, report_date, reporter_id, reported_id) VALUES 
 ('1', 'because', '2024-03-03', '1', '2');
 
+INSERT INTO Categories (id, name) VALUES
+('1', 'Electronics');
 --INSERT INTO Categories (name) VALUES
---('Electronics'),
---INSERT INTO Categories (name) VALUES
---('Books'),
+--('Books');
 --INSERT INTO Categories (name) VALUES
 --('Home Appliances');
 
