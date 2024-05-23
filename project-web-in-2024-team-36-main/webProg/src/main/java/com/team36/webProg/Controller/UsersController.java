@@ -16,7 +16,7 @@ import java.util.List;
 public class UsersController {
     private final UsersService _usersService;
 
-    //@Autowired
+    @Autowired
     public UsersController(UsersService _usersService) { this._usersService = _usersService; }
 
     @GetMapping("/users")
