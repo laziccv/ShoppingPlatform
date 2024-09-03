@@ -62,4 +62,123 @@ public class Product {
     }
     
     public Product() {}
+    
+    
+       @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                ", price='" + price + '\'' +
+                ", category='" + category + '\'' +
+                ", sType='" + sType + '\'' +
+                ", postingDate='" + postingDate + '\'' +
+                ", isSold='" + isSold + '\'' +
+                ", reviewedByBuyer='" + reviewedByBuyer + '\'' +
+                ", reviewedBySeller='" + reviewedBySeller + '\'' +
+                
+                
+                '}';
+    }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public saleType getsType() {
+		return sType;
+	}
+
+	public void setsType(saleType sType) {
+		this.sType = sType;
+	}
+
+	public Date getPostingDate() {
+		return postingDate;
+	}
+
+	public void setPostingDate(Date postingDate) {
+		this.postingDate = postingDate;
+	}
+
+	public boolean isSold() {
+		return isSold;
+	}
+
+	public void setSold(boolean isSold) {
+		this.isSold = isSold;
+	}
+
+	public boolean isReviewedByBuyer() {
+		return reviewedByBuyer;
+	}
+
+	public void setReviewedByBuyer(boolean reviewedByBuyer) {
+		this.reviewedByBuyer = reviewedByBuyer;
+	}
+
+	public boolean isReviewedBySeller() {
+		return reviewedBySeller;
+	}
+
+	public void setReviewedBySeller(boolean reviewedBySeller) {
+		this.reviewedBySeller = reviewedBySeller;
+	}
+
+	public Users getUsers() {
+		return users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+       
+    
+    
 }
